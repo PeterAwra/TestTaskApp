@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import
+            alias="view"
+            type="android.view.View" />
+
+        <variable
+            name="game"
+            type="com.awra.stud.testtaskapp.game.Game" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Display1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            app:finishMsg="@{game.finishGameObservable}"
+            app:layout_constraintBottom_toTopOf="@+id/grid_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/msg_you_won" />
+
+        <LinearLayout
+            android:id="@+id/grid_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="25dp"
+            android:background="#0f0"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1">
+
+                <Button
+                    style="@style/StyleButton"
+                    android:clickable="@{game.userMoveObservable}"
+                    android:onClick="@{()->game.clickUser(0)}"
+                    android:text="@{game.arrayValues[0]}" />
+
+                <Button
+                    style="@style/StyleButton"
+                    android:clickable="@{game.userMoveObservable}"
+                    android:onClick="@{()->game.clickUser(1)}"
+                    android:text="@{game.arrayValues[1]}" />
+
+                <Button
+                    style="@style/StyleButton"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:clickable="@{game.userMoveObservable}"
+                    android:onClick="@{()->game.clickUser(2)}"
+                    android:text="@{game.arrayValues[2]}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1">
+
+                <Button
+                    style="@style/StyleButton"
+                    android:clickable="@{game.userMoveObservable}"
+                    android:onClick="@{()->game.clickUser(3)}"
+                    android:text="@{game.arrayValues[3]}" />
+
+                <Button
+                    style="@style/StyleButton"
+                    android:clickable="@{game.userMoveObservable}"
+                    android:onClick="@{()->game.clickUser(4)}"
+                    android:text="@{game.arrayValues[4]}" />
+
+                <Button
+                    style="@style/StyleButton"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:clickable="@{game.userMoveObservable}"
+                    android:onClick="@{()->game.clickUser(5)}"
+                    android:text="@{game.arrayValues[5]}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <Button
+                    style="@style/StyleButton"
+                    android:clickable="@{game.userMoveObservable}"
+                    android:onClick="@{()->game.clickUser(6)}"
+                    android:text="@{game.arrayValues[6]}" />
+
+                <Button
+                    style="@style/StyleButton"
+                    android:clickable="@{game.userMoveObservable}"
+                    android:onClick="@{()->game.clickUser(7)}"
+                    android:text="@{game.arrayValues[7]}" />
+
+                <Button
+                    style="@style/StyleButton"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginRight="0dp"
+                    android:clickable="@{game.userMoveObservable}"
+                    android:onClick="@{()->game.clickUser(8)}"
+                    android:text="@{game.arrayValues[8]}" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:background="?selectableItemBackground"
+            android:onClick="@{()-> game.restart()}"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_restart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/grid_view" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

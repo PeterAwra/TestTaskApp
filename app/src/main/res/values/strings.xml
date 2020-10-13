@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">TestTaskApp</string>
+
+  <string name="msg_you_won">You won))</string>
+  <string name="msg_you_lose">You lose((</string>
+  <string name="msg_tie">Tie))</string>
+</resources>
